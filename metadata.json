@@ -1,0 +1,8 @@
+{
+  "name": "TerraRun",
+  "description": "Real-world territory capture game. Run to own the map.",
+  "requestFramePermissions": [
+    "geolocation",
+    "camera"
+  ]
+}

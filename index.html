@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>TerraRun</title>
+    
+    <!-- Fonts: Space Grotesk (Headers), Inter (Body), Orbitron (Numbers/UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet Map CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['Orbitron', 'monospace'],
+            },
+            colors: {
+              neon: {
+                cyan: '#0FF0FC',
+                pink: '#FF00A8',
+                green: '#00FF90',
+                purple: '#BD00FF'
+              },
+              void: '#0A0A0F',
+              surface: '#13131F',
+              surfaceHighlight: '#1E1E2E'
+            },
+            backgroundImage: {
+              'cyber-gradient': 'linear-gradient(135deg, #0A0A0F 0%, #13131F 100%)',
+              'neon-glow': 'radial-gradient(circle at center, rgba(15, 240, 252, 0.15) 0%, rgba(10, 10, 15, 0) 70%)'
+            },
+            animation: {
+              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
+            },
+            keyframes: {
+              glow: {
+                '0%': { boxShadow: '0 0 5px #0FF0FC' },
+                '100%': { boxShadow: '0 0 20px #0FF0FC, 0 0 10px #0FF0FC' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #0A0A0F;
+            color: #FFFFFF;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        #root {
+            height: 100%;
+        }
+        /* Cyberpunk Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0F; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333; 
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0FF0FC; 
+        }
+        
+        .glass-panel {
+            background: rgba(19, 19, 31, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        /* Map Overrides */
+        .leaflet-container {
+            background: #0A0A0F !important;
+        }
+        .leaflet-control-attribution {
+            background: rgba(0,0,0,0.5) !important;
+            color: #666 !important;
+        }
+        .leaflet-control-attribution a {
+            color: #666 !important;
+        }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
